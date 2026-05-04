@@ -1,0 +1,10 @@
+node_modules/
+data/models/
+data/slices/
+data/wizard-state.json
+.env
+.DS_Store
+*.log
+.idea/
+.vscode/
+coverage/
