@@ -1,0 +1,19 @@
+{
+  "port": 3030,
+  "services": {
+    "modelSource": "makerworld",
+    "slicer": "orcaslicer",
+    "printerDriver": "bambu-cloud"
+  },
+  "orcaslicer": {
+    "executablePath": "auto-detect"
+  },
+  "makerworld": {
+    "baseUrl": "https://makerworld.com",
+    "apiUrl": "https://makerworld.com/api/v1"
+  },
+  "data": {
+    "modelsDir": "./data/models",
+    "slicesDir": "./data/slices"
+  }
+}

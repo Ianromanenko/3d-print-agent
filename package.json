@@ -1,0 +1,30 @@
+{
+  "name": "3d-print-agent",
+  "version": "0.1.0",
+  "description": "AI-guided 3D printing assistant for Bambu Lab A1",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "check-orcaslicer": "bash scripts/check-orcaslicer.sh"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "extensionsToTreatAsEsm": [".js"],
+    "transform": {}
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "license": "MIT"
+}
