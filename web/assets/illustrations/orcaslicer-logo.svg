@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none">
+  <circle cx="100" cy="55" r="40" fill="#1a1a2e" stroke="#4f9eff" stroke-width="2.5"/>
+  <circle cx="100" cy="55" r="28" fill="none" stroke="#4f9eff" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <circle cx="100" cy="55" r="14" fill="#4f9eff" opacity="0.8"/>
+  <circle cx="100" cy="55" r="6" fill="#0f0f20"/>
+  <text x="100" y="108" text-anchor="middle" font-size="14" fill="#e8e8f0" font-family="sans-serif" font-weight="600">OrcaSlicer</text>
+  <text x="100" y="120" text-anchor="middle" font-size="10" fill="#888899" font-family="sans-serif">Open Source · Free</text>
+</svg>

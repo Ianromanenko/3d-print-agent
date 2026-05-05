@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Print Agent — Bambu Lab A1</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🖨️</text></svg>" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="logo">🖨️ 3D Print Agent</span>
+    </div>
+    <div class="topbar-center">
+      <div class="progress-track">
+        <div id="progress-bar-fill" class="progress-fill"></div>
+      </div>
+      <span id="progress-label" class="progress-label">Step 1 of 13</span>
+    </div>
+    <div class="topbar-right">
+      <button class="btn btn-ghost btn-sm" id="btn-help">❓ Help</button>
+      <button class="btn btn-ghost btn-sm" id="btn-settings">⚙️</button>
+    </div>
+  </header>
+
+  <!-- Main layout -->
+  <div class="layout">
+    <!-- Wizard content -->
+    <main id="wizard-container" class="wizard-container">
+      <div class="loading-spinner">Loading…</div>
+    </main>
+
+    <!-- Help / troubleshooting panel (hidden by default) -->
+    <aside id="help-panel" class="help-panel hidden">
+      <div class="help-panel-header">
+        <h3>🛠 Troubleshooting</h3>
+        <button class="btn btn-ghost" id="btn-close-help">✕</button>
+      </div>
+      <div id="help-panel-content" class="help-panel-content"></div>
+    </aside>
+  </div>
+
+  <!-- Settings modal -->
+  <dialog id="settings-modal" class="modal">
+    <div class="modal-content">
+      <h3>Settings</h3>
+      <button class="btn btn-danger" id="btn-reset-setup">🔄 Redo hardware setup</button>
+      <button class="btn btn-ghost" id="btn-reset-all">⚠️ Reset all progress</button>
+      <hr />
+      <button class="btn btn-primary" id="btn-close-settings">Close</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

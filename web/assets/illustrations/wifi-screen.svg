@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none">
+  <!-- Touchscreen -->
+  <rect x="140" y="50" width="200" height="210" rx="12" fill="#0f0f20" stroke="#4f9eff" stroke-width="2"/>
+  <rect x="150" y="60" width="180" height="190" rx="8" fill="#111118"/>
+  <!-- Header -->
+  <rect x="150" y="60" width="180" height="32" rx="8" fill="#1a1a2e"/>
+  <text x="240" y="81" text-anchor="middle" font-size="12" fill="#4f9eff" font-family="sans-serif" font-weight="600">Settings → Network → WiFi</text>
+
+  <!-- WiFi icon in header -->
+  <path d="M 308 74 Q 316 66 324 74" stroke="#3ecf8e" stroke-width="2" fill="none"/>
+  <path d="M 311 78 Q 316 73 321 78" stroke="#3ecf8e" stroke-width="2" fill="none"/>
+  <circle cx="316" cy="82" r="2" fill="#3ecf8e"/>
+
+  <!-- Network list -->
+  <rect x="158" y="100" width="164" height="28" rx="4" fill="#3ecf8e" opacity="0.15" stroke="#3ecf8e" stroke-width="1"/>
+  <text x="170" y="119" font-size="12" fill="#3ecf8e" font-family="sans-serif">📶 MyHomeWiFi</text>
+  <text x="308" y="119" text-anchor="end" font-size="10" fill="#3ecf8e" font-family="sans-serif">✓</text>
+
+  <rect x="158" y="134" width="164" height="28" rx="4" fill="#222228"/>
+  <text x="170" y="153" font-size="12" fill="#888899" font-family="sans-serif">📶 Neighbour_5G</text>
+
+  <rect x="158" y="168" width="164" height="28" rx="4" fill="#222228"/>
+  <text x="170" y="187" font-size="12" fill="#888899" font-family="sans-serif">📶 Office_WiFi</text>
+
+  <!-- Password field -->
+  <rect x="158" y="202" width="164" height="28" rx="4" fill="#0f0f20" stroke="#4f9eff" stroke-width="1"/>
+  <text x="170" y="221" font-size="11" fill="#888899" font-family="sans-serif">Password: ••••••••</text>
+
+  <!-- Arrow to first network -->
+  <line x1="330" y1="114" x2="324" y2="114" stroke="#f59e0b" stroke-width="2"/>
+  <polygon points="324,110 316,114 324,118" fill="#f59e0b"/>
+  <text x="336" y="118" font-size="11" fill="#f59e0b" font-family="sans-serif">Select yours</text>
+
+  <!-- WiFi hint -->
+  <text x="240" y="296" text-anchor="middle" font-size="12" fill="#888899" font-family="sans-serif">Use 2.4 GHz network · same as your Mac</text>
+</svg>

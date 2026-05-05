@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none">
+  <!-- Build plate -->
+  <rect x="80" y="160" width="260" height="120" rx="6" fill="#222228" stroke="#2e2e38" stroke-width="2"/>
+  <rect x="88" y="168" width="244" height="104" rx="4" fill="#1a1a2e"/>
+  <!-- Texture dots on plate -->
+  <g fill="#333344">
+    <circle cx="120" cy="190" r="2"/><circle cx="150" cy="190" r="2"/><circle cx="180" cy="190" r="2"/>
+    <circle cx="210" cy="190" r="2"/><circle cx="240" cy="190" r="2"/><circle cx="270" cy="190" r="2"/>
+    <circle cx="120" cy="215" r="2"/><circle cx="150" cy="215" r="2"/><circle cx="180" cy="215" r="2"/>
+    <circle cx="210" cy="215" r="2"/><circle cx="240" cy="215" r="2"/><circle cx="270" cy="215" r="2"/>
+    <circle cx="120" cy="240" r="2"/><circle cx="150" cy="240" r="2"/><circle cx="180" cy="240" r="2"/>
+    <circle cx="210" cy="240" r="2"/><circle cx="240" cy="240" r="2"/><circle cx="270" cy="240" r="2"/>
+  </g>
+
+  <!-- IPA bottle -->
+  <rect x="370" y="80" width="40" height="80" rx="6" fill="#4f9eff" opacity="0.6"/>
+  <rect x="378" y="68" width="24" height="16" rx="4" fill="#4f9eff" opacity="0.8"/>
+  <text x="390" y="128" text-anchor="middle" font-size="9" fill="white" font-family="sans-serif">IPA</text>
+  <text x="390" y="140" text-anchor="middle" font-size="8" fill="white" font-family="sans-serif">90%+</text>
+
+  <!-- Cloth / paper towel wiping motion -->
+  <rect x="150" y="140" width="100" height="28" rx="6" fill="#e8e8f0" opacity="0.9"/>
+  <line x1="158" y1="154" x2="242" y2="154" stroke="#cccccc" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="200" y="157" text-anchor="middle" font-size="10" fill="#888899" font-family="sans-serif">cloth</text>
+  <!-- Arrow showing wipe direction -->
+  <line x1="130" y1="154" x2="162" y2="154" stroke="#4f9eff" stroke-width="2"/>
+  <polygon points="160,149 168,154 160,159" fill="#4f9eff"/>
+  <line x1="248" y1="154" x2="280" y2="154" stroke="#4f9eff" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Step labels -->
+  <text x="160" y="110" font-size="12" fill="#4f9eff" font-family="sans-serif" font-weight="600">① Wipe left → right</text>
+  <text x="160" y="128" font-size="12" fill="#4f9eff" font-family="sans-serif">② Rotate plate 90°, repeat</text>
+
+  <text x="240" y="304" text-anchor="middle" font-size="13" fill="#888899" font-family="sans-serif">90%+ isopropyl alcohol · wipe before every print</text>
+</svg>

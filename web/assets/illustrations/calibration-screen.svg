@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none">
+  <!-- Printer touchscreen -->
+  <rect x="140" y="60" width="200" height="180" rx="12" fill="#0f0f20" stroke="#4f9eff" stroke-width="2"/>
+  <!-- Screen content -->
+  <rect x="150" y="70" width="180" height="160" rx="8" fill="#111118"/>
+  <!-- Header -->
+  <rect x="150" y="70" width="180" height="32" rx="8" fill="#1a1a2e"/>
+  <text x="240" y="91" text-anchor="middle" font-size="12" fill="#4f9eff" font-family="sans-serif" font-weight="600">Auto Calibration</text>
+  <!-- Progress bar -->
+  <rect x="162" y="114" width="156" height="8" rx="4" fill="#222228"/>
+  <rect x="162" y="114" width="80" height="8" rx="4" fill="#4f9eff"/>
+  <text x="240" y="137" text-anchor="middle" font-size="11" fill="#888899" font-family="sans-serif">Calibrating bed mesh…</text>
+  <!-- Print head moving animation suggestion -->
+  <rect x="162" y="148" width="156" height="40" rx="4" fill="#0f0f20" stroke="#222228"/>
+  <circle cx="220" cy="168" r="6" fill="#4f9eff" opacity="0.6"/>
+  <line x1="162" y1="168" x2="318" y2="168" stroke="#333344" stroke-width="1" stroke-dasharray="4,4"/>
+  <!-- OK Button -->
+  <rect x="185" y="200" width="110" height="24" rx="6" fill="#3ecf8e"/>
+  <text x="240" y="217" text-anchor="middle" font-size="12" fill="white" font-family="sans-serif" font-weight="600">OK / Start</text>
+
+  <!-- Arrow pointing to OK -->
+  <line x1="340" y1="212" x2="298" y2="212" stroke="#f59e0b" stroke-width="2"/>
+  <polygon points="298,208 290,212 298,216" fill="#f59e0b"/>
+  <text x="360" y="215" font-size="11" fill="#f59e0b" font-family="sans-serif">Tap here</text>
+
+  <text x="240" y="290" text-anchor="middle" font-size="13" fill="#888899" font-family="sans-serif">Follow on-screen prompts · takes ~5–10 minutes</text>
+</svg>

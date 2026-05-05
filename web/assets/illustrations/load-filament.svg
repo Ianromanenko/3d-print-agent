@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none">
+  <!-- Spool -->
+  <circle cx="100" cy="160" r="60" fill="#222228" stroke="#2e2e38" stroke-width="2"/>
+  <circle cx="100" cy="160" r="40" fill="#1a1a2e" stroke="#2e2e38" stroke-width="1.5"/>
+  <circle cx="100" cy="160" r="14" fill="#222228" stroke="#4f9eff" stroke-width="1.5"/>
+  <!-- Filament on spool -->
+  <path d="M 60 130 Q 100 100 140 130 Q 160 160 140 190 Q 100 220 60 190 Q 40 160 60 130Z" fill="none" stroke="white" stroke-width="3" opacity="0.5"/>
+  <text x="100" y="248" text-anchor="middle" font-size="11" fill="#888899" font-family="sans-serif">Spool</text>
+
+  <!-- PTFE tube -->
+  <path d="M 160 160 Q 240 120 320 140" stroke="#4f9eff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7" stroke-dasharray="8,4"/>
+  <text x="240" y="115" text-anchor="middle" font-size="11" fill="#4f9eff" font-family="sans-serif">PTFE tube</text>
+
+  <!-- Print head -->
+  <rect x="320" y="120" width="60" height="60" rx="6" fill="#1a1a2e" stroke="#4f9eff" stroke-width="2"/>
+  <rect x="332" y="174" width="10" height="20" rx="2" fill="#4f9eff"/>
+  <rect x="350" y="174" width="8" height="20" rx="2" fill="#4f9eff"/>
+  <text x="350" y="158" text-anchor="middle" font-size="10" fill="#888899" font-family="sans-serif">Head</text>
+
+  <!-- Filament path entering head -->
+  <line x1="340" y1="120" x2="340" y2="108" stroke="white" stroke-width="3" opacity="0.8"/>
+  <!-- Arrow down into head -->
+  <polygon points="336,119 340,128 344,119" fill="#3ecf8e"/>
+
+  <!-- Nozzle drip -->
+  <path d="M 335 194 Q 336 204 338 208" stroke="#4f9eff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <circle cx="338" cy="210" r="3" fill="#4f9eff"/>
+
+  <text x="240" y="295" text-anchor="middle" font-size="13" fill="#888899" font-family="sans-serif">Feed filament through PTFE tube into print head</text>
+</svg>

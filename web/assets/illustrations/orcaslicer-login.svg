@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none">
+  <!-- OrcaSlicer window -->
+  <rect x="60" y="40" width="360" height="240" rx="10" fill="#0f0f20" stroke="#2e2e38" stroke-width="2"/>
+  <!-- Title bar -->
+  <rect x="60" y="40" width="360" height="28" rx="10" fill="#1a1a2e"/>
+  <rect x="60" y="54" width="360" height="14" fill="#1a1a2e"/>
+  <circle cx="80" cy="54" r="5" fill="#ef4444"/>
+  <circle cx="96" cy="54" r="5" fill="#f59e0b"/>
+  <circle cx="112" cy="54" r="5" fill="#3ecf8e"/>
+  <text x="240" y="59" text-anchor="middle" font-size="11" fill="#888899" font-family="sans-serif">OrcaSlicer</text>
+
+  <!-- Add printer dialog -->
+  <rect x="100" y="80" width="280" height="180" rx="8" fill="#1a1a2e" stroke="#4f9eff" stroke-width="1.5"/>
+  <text x="240" y="102" text-anchor="middle" font-size="13" fill="#e8e8f0" font-family="sans-serif" font-weight="600">Add Printer</text>
+
+  <!-- Bambu Lab option highlighted -->
+  <rect x="112" y="112" width="256" height="32" rx="6" fill="#4f9eff" opacity="0.15" stroke="#4f9eff" stroke-width="1.5"/>
+  <text x="140" y="133" font-size="13" fill="#4f9eff" font-family="sans-serif">🖨️  Bambu Lab → A1</text>
+
+  <!-- Login with Bambu -->
+  <rect x="130" y="156" width="220" height="32" rx="6" fill="#3ecf8e"/>
+  <text x="240" y="177" text-anchor="middle" font-size="12" fill="white" font-family="sans-serif" font-weight="600">Login with Bambu Cloud</text>
+
+  <!-- Arrow -->
+  <line x1="370" y1="172" x2="352" y2="172" stroke="#f59e0b" stroke-width="2"/>
+  <polygon points="352,168 344,172 352,176" fill="#f59e0b"/>
+
+  <text x="240" y="300" text-anchor="middle" font-size="13" fill="#888899" font-family="sans-serif">Add Printer → Bambu Lab → A1 → Login with Bambu Cloud</text>
+</svg>

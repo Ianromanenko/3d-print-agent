@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" fill="none">
+  <!-- Printer rear view -->
+  <rect x="100" y="60" width="280" height="200" rx="8" fill="#1a1a2e" stroke="#2e2e38" stroke-width="2"/>
+  <text x="240" y="40" text-anchor="middle" font-size="13" fill="#888899" font-family="sans-serif">Back of printer</text>
+
+  <!-- Power socket -->
+  <rect x="130" y="100" width="50" height="36" rx="4" fill="#222228" stroke="#444"/>
+  <rect x="140" y="110" width="14" height="16" rx="2" fill="#0f0f20"/>
+  <rect x="162" y="110" width="8" height="16" rx="2" fill="#0f0f20"/>
+
+  <!-- Power switch — highlighted -->
+  <rect x="280" y="96" width="60" height="44" rx="6" fill="#222228" stroke="#4f9eff" stroke-width="2.5"/>
+  <!-- Rocker ON side -->
+  <rect x="284" y="100" width="24" height="36" rx="4" fill="#3ecf8e"/>
+  <text x="296" y="123" text-anchor="middle" font-size="14" fill="white" font-weight="bold" font-family="sans-serif">I</text>
+  <!-- Rocker OFF side -->
+  <rect x="312" y="100" width="24" height="36" rx="4" fill="#333344"/>
+  <text x="324" y="123" text-anchor="middle" font-size="12" fill="#888899" font-family="sans-serif">O</text>
+
+  <!-- Arrow pointing to switch -->
+  <line x1="260" y1="118" x2="278" y2="118" stroke="#4f9eff" stroke-width="2"/>
+  <polygon points="278,114 286,118 278,122" fill="#4f9eff"/>
+  <text x="180" y="122" text-anchor="middle" font-size="12" fill="#4f9eff" font-family="sans-serif">Flip to I (ON)</text>
+
+  <!-- Power cable -->
+  <path d="M 155 136 Q 155 180 120 200" stroke="#555" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <rect x="90" y="195" width="30" height="18" rx="3" fill="#333"/>
+
+  <!-- Label -->
+  <text x="240" y="290" text-anchor="middle" font-size="13" fill="#888899" font-family="sans-serif">Rocker switch on the back-left · Flip to I to power on</text>
+</svg>
