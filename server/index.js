@@ -18,12 +18,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve Three.js from node_modules
+// Serve all of three's package at /vendor/three — import map resolves paths
 app.use('/vendor/three', express.static(
-  path.join(__dirname, '../node_modules/three/build')
-));
-app.use('/vendor/three/examples', express.static(
-  path.join(__dirname, '../node_modules/three/examples')
+  path.join(__dirname, '../node_modules/three')
 ));
 
 // Serve uploaded models for the 3D viewer

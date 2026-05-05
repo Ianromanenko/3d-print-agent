@@ -1,5 +1,6 @@
 import { state } from './state.js';
-import { logger } from './logger.js';
+
+const logger = { warn: (...a) => console.warn('[Router]', ...a) };
 
 /**
  * Wizard router — manages step sequence and navigation.
@@ -72,5 +73,3 @@ export class Router {
   }
 }
 
-// Tiny logger shim for the browser
-const logger = { warn: (...a) => console.warn(...a) };
