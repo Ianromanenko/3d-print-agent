@@ -1,0 +1,52 @@
+{
+    "type": "filament",
+    "name": "Bambu PETG HF White Matte Smooth @BBL A1",
+    "inherits": "Bambu PETG HF @BBL A1",
+    "from": "User",
+    "instantiation": "true",
+    "filament_settings_id": [
+        "Bambu PETG HF White Matte Smooth @BBL A1"
+    ],
+    "nozzle_temperature": [
+        "252"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "255"
+    ],
+    "hot_plate_temp": [
+        "70"
+    ],
+    "hot_plate_temp_initial_layer": [
+        "70"
+    ],
+    "textured_plate_temp": [
+        "70"
+    ],
+    "textured_plate_temp_initial_layer": [
+        "70"
+    ],
+    "fan_min_speed": [
+        "40"
+    ],
+    "fan_max_speed": [
+        "50"
+    ],
+    "close_fan_the_first_x_layers": [
+        "2"
+    ],
+    "filament_max_volumetric_speed": [
+        "21"
+    ],
+    "filament_retraction_length": [
+        "0.8"
+    ],
+    "filament_retraction_speed": [
+        "40"
+    ],
+    "filament_wipe": [
+        "1"
+    ],
+    "compatible_printers": [
+        "Bambu Lab A1 0.4 nozzle"
+    ]
+}

@@ -1,0 +1,32 @@
+[project]
+name = "print-agent"
+version = "0.1.0"
+description = "3D Print Agent for Bambu Lab A1 — CAD generation, printability gate, headless slicing (PLAN-3D-AGENT.md)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "build123d>=0.9",
+    "trimesh>=4.5",
+    "manifold3d>=3.0",
+    "numpy>=1.26",
+    "networkx>=3.0",
+    "python-dotenv>=1.0",
+    "shapely>=2.0",
+    # stage 6 (verify): offscreen rendering — pyvista/VTK verified to work
+    # headless on macOS arm64 (fallback would be matplotlib mplot3d + Agg)
+    "pyvista>=0.44",
+    "pillow>=10.0",
+    # stage 8 (printer handoff): MQTT 8883 + implicit FTPS 990 on the A1.
+    # bambulabs-api is preferred (proven implicit-FTPS/MQTT client); printer.py
+    # degrades to raw paho-mqtt + ftplib if it's ever absent.
+    "bambulabs-api>=2.6",
+    "paho-mqtt>=2.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/agent"]
+
+[tool.uv]
+package = false

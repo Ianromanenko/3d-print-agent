@@ -1,0 +1,28 @@
+{
+    "type": "process",
+    "name": "0.16mm PETG HF Smooth @BBL A1",
+    "inherits": "0.20mm Standard @BBL A1",
+    "from": "User",
+    "instantiation": "true",
+    "print_settings_id": "0.16mm PETG HF Smooth @BBL A1",
+    "layer_height": "0.16",
+    "initial_layer_print_height": "0.2",
+    "wall_loops": "3",
+    "top_shell_layers": "5",
+    "bottom_shell_layers": "4",
+    "top_surface_pattern": "monotonic",
+    "sparse_infill_density": "15%",
+    "sparse_infill_pattern": "grid",
+    "outer_wall_speed": [
+        "120"
+    ],
+    "seam_position": "aligned",
+    "ironing_type": "top",
+    "ironing_pattern": "rectilinear",
+    "ironing_flow": "10%",
+    "ironing_spacing": "0.1",
+    "ironing_speed": "25",
+    "compatible_printers": [
+        "Bambu Lab A1 0.4 nozzle"
+    ]
+}

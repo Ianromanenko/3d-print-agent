@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+#
+# 3D Print Agent — единая точка входа (on-demand, без демона).
+# Оба триггера зовут ЭТОТ скрипт:
+#   • Raycast-хоткей (Mac):  triggers/raycast/3d-print-agent.sh
+#   • iPhone Action Button:  triggers/shortcuts/ (Run Script Over SSH)
+#
+# Использование:
+#   bin/print-agent "напечатай 6 шестерён Ø20мм, module 1, толщина 5, отверстие 5"
+#   bin/print-agent --image /path/to/ref.jpg "как на фото, но 40мм"
+#
+# Что делает: cd в проект → активирует venv → поднимает сессию агента с запросом.
+# «Мозг» (understand/clarify/vision self-check) — Claude-сессия; детерминированные
+# стадии (generate/gate/slice/printer) — модули пакета agent/.
+set -euo pipefail
+
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$REPO_DIR"
+
+# --- venv (uv создаёт .venv в корне; см. scripts/setup-agent.sh) ---
+if [[ -f ".venv/bin/activate" ]]; then
+  # shellcheck disable=SC1091
+  source ".venv/bin/activate"
+else
+  echo "[print-agent] venv не найден — сначала: bash scripts/setup-agent.sh" >&2
+  exit 1
+fi
+
+# --- разобрать необязательные вложения (фото/аудио), остальное = текст запроса ---
+IMAGES=()
+AUDIO=()
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --image) IMAGES+=("$2"); shift 2 ;;
+    --audio) AUDIO+=("$2"); shift 2 ;;
+    *) break ;;
+  esac
+done
+REQUEST="${*:-}"
+
+if [[ -z "$REQUEST" && ${#IMAGES[@]} -eq 0 && ${#AUDIO[@]} -eq 0 ]]; then
+  echo "[print-agent] пустой запрос. Пример: bin/print-agent \"6 шестерён Ø20мм\"" >&2
+  exit 2
+fi
+
+# Пробрасываем вложения в окружение, чтобы intake их подхватил.
+export PRINT_AGENT_IMAGES="${IMAGES[*]:-}"
+export PRINT_AGENT_AUDIO="${AUDIO[*]:-}"
+
+# --- запуск сессии агента (двухрежимный шов) ---
+# ИНТЕРАКТИВНО (Raycast, TTY): поднимаем Claude Code-сессию, праймленную agent/BRAIN.md —
+#   она сама оркестрирует understand→clarify(блок)→generate→gate→verify→slice→handoff,
+#   вызывая модули agent/ как инструменты. Clarify естественно интерактивен в терминале.
+# HEADLESS (iPhone/SSH, не-TTY, или нет `claude` в PATH): детерминированный пайплайн —
+#   при нехватке размеров печатает вопросы и выходит с кодом 3, НЕ строит вслепую.
+# Форсировать режим: PRINT_AGENT_BRAIN=claude | pipeline
+BRAIN_PROMPT="Read agent/BRAIN.md and operate as that on-demand 3D-print agent for exactly ONE request. Run its pipeline: understand -> CLARIFY (restate what you understood + ask targeted questions, and BLOCK for my confirmation before modeling) -> generate -> printability gate -> slice with the PETG HF profile -> give me the .gcode.3mf path. Request: ${REQUEST}"
+if [[ -n "$PRINT_AGENT_IMAGES" ]]; then
+  BRAIN_PROMPT+=$'\n'"Reference images: $PRINT_AGENT_IMAGES"
+fi
+if [[ -n "$PRINT_AGENT_AUDIO" ]]; then
+  BRAIN_PROMPT+=$'\n'"Reference audio (transcribe): $PRINT_AGENT_AUDIO"
+fi
+
+MODE="${PRINT_AGENT_BRAIN:-auto}"
+if [[ "$MODE" == "pipeline" ]]; then
+  exec python -m agent.pipeline run "$REQUEST"
+elif { [[ "$MODE" == "claude" ]] || [[ -t 0 ]]; } && command -v claude >/dev/null 2>&1; then
+  exec claude "$BRAIN_PROMPT"
+else
+  exec python -m agent.pipeline run "$REQUEST"
+fi

@@ -3,8 +3,19 @@ data/models/
 data/slices/
 data/wizard-state.json
 .env
+
+# 3D Print Agent (Python)
+.venv/
+output/
+__pycache__/
+.pytest_cache/
+*.egg-info/
 .DS_Store
 *.log
 .idea/
 .vscode/
 coverage/
+.venv/
+output/
+__pycache__/
+.pytest_cache/
