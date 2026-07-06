@@ -15,7 +15,9 @@ that dies with a signal is skipped for the remaining attempts.
 
 from __future__ import annotations
 
+import json
 import subprocess
+import tempfile
 import zipfile
 from pathlib import Path
 
@@ -23,9 +25,44 @@ from agent.config import BUNDLED_PROFILE_NAMES, bundled_profiles_dir, load_confi
 
 _MIN_GCODE_BYTES = 1000  # anything smaller is not a real sliced plate
 
+# The CLI validates bed/filament compatibility; the implicit default (Cool Plate)
+# rejects PETG, so the process config must always carry an explicit bed type.
+_DEFAULT_BED_TYPE = "Textured PEI Plate"
+
 
 class SliceError(RuntimeError):
     pass
+
+
+def _resolve_inherits(path: Path, search_dirs: list[Path]) -> dict:
+    """Flatten a preset's `inherits` chain (child keys win).
+
+    The CLI does NOT resolve `inherits` in configs passed by path: it silently
+    slices with defaults for every missing key — including printable_area
+    (200x200), which makes arrange reject anything bigger than the A1-mini-ish
+    default plate ("can not be arranged inside plate!").
+    """
+    cfg = json.loads(path.read_text())
+    parent = cfg.pop("inherits", None)
+    if parent is None:
+        return cfg
+    for d in search_dirs:
+        p = d / f"{parent}.json"
+        if p.is_file():
+            base = _resolve_inherits(p, search_dirs)
+            base.update(cfg)
+            return base
+    raise SliceError(f"{path.name}: parent preset '{parent}' not found in {search_dirs}")
+
+
+def _merged_preset(src: Path, kind: str, bundled: Path, tmp_dir: Path) -> Path:
+    """Write a fully-flattened copy of `src` into tmp_dir and return its path."""
+    cfg = _resolve_inherits(src, [src.parent, bundled / kind])
+    if kind == "process":
+        cfg.setdefault("curr_bed_type", _DEFAULT_BED_TYPE)
+    out = tmp_dir / f"{kind}_{src.stem}.json"
+    out.write_text(json.dumps(cfg, indent=1))
+    return out
 
 
 def _run_cli(
@@ -77,9 +114,13 @@ def slice_objects(stls: list[Path], out: Path, *, arrange: bool = True) -> Path:
     out.unlink(missing_ok=True)
 
     errors: list[str] = []
+    tmp_dir = Path(tempfile.mkdtemp(prefix="slice_presets_"))
     for slicer_bin in cfg.slicer_bins:
         bundled = bundled_profiles_dir(slicer_bin)
-        machine = bundled / "machine" / f"{BUNDLED_PROFILE_NAMES['machine']}.json"
+        machine = _merged_preset(
+            bundled / "machine" / f"{BUNDLED_PROFILE_NAMES['machine']}.json",
+            "machine", bundled, tmp_dir,
+        )
         attempts = [
             (
                 "PETG HF overrides (agent/profiles)",
@@ -94,6 +135,8 @@ def slice_objects(stls: list[Path], out: Path, *, arrange: bool = True) -> Path:
         ]
         for label, process_json, filament_json in attempts:
             tag = f"{slicer_bin.name} + {label}"
+            process_json = _merged_preset(process_json, "process", bundled, tmp_dir)
+            filament_json = _merged_preset(filament_json, "filament", bundled, tmp_dir)
             proc = _run_cli(slicer_bin, stls, out, machine, process_json, filament_json, arrange)
             try:
                 if proc.returncode != 0:
