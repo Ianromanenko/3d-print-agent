@@ -31,7 +31,7 @@
 | Что | Зачем | Проверка / установка |
 |---|---|---|
 | **macOS** | агент писался и тестировался на Mac (Apple Silicon) | — |
-| **Claude Code** | «мозг» агента — сессия Claude в этой папке | https://claude.com/claude-code |
+| **Claude Code** | «мозг» агента — сессия Claude в этой папке | `curl -fsSL https://claude.ai/install.sh \| bash` |
 | **uv** | менеджер Python-окружений | `brew install uv` |
 | **Python 3.12** | ставит сам `uv` — **не 3.14!** | см. прим. ниже |
 | **OrcaSlicer** | headless-слайсинг | `brew install --cask orcaslicer` |
